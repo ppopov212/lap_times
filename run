@@ -1,0 +1,8 @@
+#!/bin/bash
+
+full_image_tag="best_lap_time:$(date +%s)"
+
+docker build -t "$full_image_tag" .
+
+docker run --rm -v "${PWD/best_lap_time:/best_lap_time.txt}" "${full_image_tag}"
+
